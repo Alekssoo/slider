@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Yeseva+One&display=swap');
+
+.body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.title {
+    font-family: 'Yeseva One', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 37px;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    color: #E3B873;
+    font-weight: 400;
+}
+
+.content {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.projects {
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 420px;
+}
+
+.projects_content {
+    height: auto;
+    position: relative;
+}
+
+.projects_title {
+    max-width: 50%;
+    margin-top: 0;
+}
+
+.projects_text {
+    font-size: 14px;
+    line-height: 27px;
+    margin-bottom: 21px;
+}
+
+.projects_names {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    border: 1px solid black;
+    width: 51%; /*изменено */
+    margin-top: 0;
+    margin-left: 43%;
+}
+
+.projects_names_item {
+    margin-right: 46px; /*изменено */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.projects_names_link {
+    font-family: 'Yeseva One', cursive;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    padding-top: 6.7px;
+    padding-bottom: 6.7px;
+}
+
+.projects_names_current {
+    color: #E3B873;
+    border-bottom: 1px solid #E3B873;
+}
+
+.projects_details {
+    display: flex;
+    max-height: 482px; /* изменено */
+    margin: 0 auto;
+    margin-top: 45px;
+}
+
+.projects_details_info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 35%;
+    margin-right: 3%; /* изменено */
+    margin-left: inherit; /* добавлено */
+}
+
+.projects_details_mobile {
+    display: none;
+    max-height: 584px;
+}
+
+.projects_details_mobile img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+}
+
+.projects_details_params {
+    padding-top: 21px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.projects_details_params dd {
+    margin-left: 0;
+}
+
+.projects_params_block {
+    flex: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.projects_block_title {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 9px;
+}
+
+.slider__arrows {
+    display: flex;
+    align-self: flex-start;
+}
+
+.slider__arrow {
+    cursor: pointer;
+  }
+
+.slider__arrow:hover {
+    /* opacity: 1; */
+}
+
+.slider__arrows__item {
+    margin-right: 30px;
+}
+
+.projects_details_info > div:nth-last-child(2) {
+    flex: 1;
+} 
+
+.projects_details_photo {
+    max-width: 100%;
+    margin-left: auto; /* добавлено */
+    margin-right: inherit; /* добавлено */
+}
+
+.projects_details_mobile-buttons {
+    display: none;
+    bottom: 42%;
+    height: 5%;
+}
+
+.mobile-buttons {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    margin: 0 auto;
+    left: 3%;
+    bottom: 44%;
+    height: 6%;
+}
+
+.mini-button {
+    display:none;
+}
+
+.slider__images-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    padding: 7px 0;
+  }
+  
+  .slider__images .image {
+    opacity: 0;
+    transition: opacity 800ms ease;
+  }
+  
+  .slider__images .image.active {
+    opacity: 1;
+  }
+
+.slider__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    /* left: 0; */
+    bottom: -20px;
+    width: 100%;
+  }
+  
+  .slider__dots-item {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+  }
+
+  .slider__dots-item:hover, .slider__dots-item.active {
+    background: #fff;
+  }
