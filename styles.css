@@ -73,7 +73,7 @@
     padding-bottom: 6.7px;
 }
 
-.slider__names_current {
+.slider__names_link.active {
     color: #E3B873;
     border-bottom: 1px solid #E3B873;
 }
@@ -105,7 +105,7 @@
     width: 100%;
 }
 
-.projects_details_params {
+.slider__params {
     padding-top: 21px;
     display: flex;
     flex-wrap: wrap;
@@ -113,17 +113,17 @@
     height: 100%;
 }
 
-.projects_details_params dd {
+.slider__params dd {
     margin-left: 0;
 }
 
-.projects_params_block {
+.slider__params_block {
     flex: 50%;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.projects_block_title {
+.slider__params_title {
     font-size: 18px;
     line-height: 25px;
     margin-bottom: 9px;

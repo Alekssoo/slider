@@ -4,7 +4,7 @@ let photos = [{
     title: "Rostov-on-Don, Admiral",
     city: "Rostov-on-Don",
     district: "LCD admiral",
-    apartment: "81 m2",
+    area: "81 m2",
     time: "3.5 months",
     cost: "Upon request"
   }, {
@@ -13,7 +13,7 @@ let photos = [{
     title: "Sochi Thieves",
     city: "Sochi",
     district: "Thieves",
-    apartment: "105 m2",
+    area: "105 m2",
     time: "4 months",
     cost: "Upon request"
   }, {
@@ -22,7 +22,7 @@ let photos = [{
     title: "Rostov-on-Don Patriotic",
     city: "Rostov-on-Don",
     district: "Patriotic",
-    apartment: "93 m2",
+    area: "93 m2",
     time: "3 months",
     cost: "Upon request"
   }];
@@ -44,6 +44,7 @@ function initSlider(options) {
   initPhotos();
   initArrows();
   initNames(); 
+  
   
   if (options.dots) {
     initDots();
@@ -94,17 +95,9 @@ function initSlider(options) {
 
   function initNames() {
     photos.forEach((photo, index) => {
-      let name =  `<li class="slider__names_item"><a href="#projects" class="slider__names_link n${index} ${index === 0? "slider__names_current active" : ""}" data-index="${index}">${photos[index].title}</a></li>`  
+      let name =  `<li class="slider__names_item"><a href="#projects" class="slider__names_link n${index} ${index === 0? "active" : ""}" data-index="${index}">${photos[index].title}</a></li>`  
       sliderNames.innerHTML += name;
       
-      
-      //let name = photos[index].title;
-      //sliderNames.querySelector(".slider__names_link").classList.add(`n${index}`);
-      //sliderNames.querySelector(".slider__names_link").dataset.index = index;
-      //sliderNames.querySelector(".slider__names_link").classList.add(index === 0? "slider__names_current" : "")
-
-    //   `<div class="slider__dots-item n${index} ${index === 0? "active" : ""}" data-index="${index}"></div>`;
-    //   sliderDots.innerHTML += dot;
     });
     sliderNames.querySelectorAll(".slider__names_link").forEach(name => {
         name.addEventListener("click", function() {
@@ -122,14 +115,10 @@ function initSlider(options) {
       sliderDots.querySelector(".n" + num).classList.add("active");
     }
     if (options.titles) changeTitle(num);
-  }
 
-  function changeName(num) {
-    //if (!photos[num].title) return;
     sliderNames.querySelector(".active").classList.remove("active");
     sliderNames.querySelector(".n" + num).classList.add("active");
-    //let sliderName = sliderNames.querySelector(".slider__photos-title");
-    //sliderNames.innerText = cropTitle(photos[num].title, 50);
+    changeParams(num);
   }
   
   function initTitles() {
@@ -149,6 +138,20 @@ function initSlider(options) {
     } else {
       return title.substr(0, size) + "...";
     }
+  }
+
+  function changeParams(num) {
+    let sliderParamsCity = document.querySelector(".slider__params_city");
+    let sliderParamsDistrict = document.querySelector(".slider__params_district");
+    let sliderParamsArea = document.querySelector(".slider__params_area");
+    let sliderParamsTime = document.querySelector(".slider__params_time");
+    let sliderParamsCost = document.querySelector(".slider__params_cost");
+
+    sliderParamsCity.innerText = photos[num].city;
+    sliderParamsDistrict.innerText = photos[num].district;
+    sliderParamsArea.innerText = photos[num].area;
+    sliderParamsTime.innerText = photos[num].time;
+    sliderParamsCost.innerText = photos[num].cost;
   }
   
   function initAutoplay() {
