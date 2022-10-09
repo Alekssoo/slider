@@ -45,7 +45,7 @@
     margin-bottom: 21px;
 }
 
-.projects_names {
+.slider__names {
     display: flex;
     justify-content: space-between;
     max-width: 1440px;
@@ -55,13 +55,13 @@
     margin-left: 43%;
 }
 
-.projects_names_item {
+.slider__names_item {
     margin-right: 46px; /*изменено */
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.projects_names_link {
+.slider__names_link {
     font-family: 'Yeseva One', cursive;
     font-weight: 400;
     font-size: 14px;
@@ -73,7 +73,7 @@
     padding-bottom: 6.7px;
 }
 
-.projects_names_current {
+.slider__names_current {
     color: #E3B873;
     border-bottom: 1px solid #E3B873;
 }
@@ -178,7 +178,13 @@
     display:none;
 }
 
-.slider__images-title {
+.slider__photos {
+    position: relative;
+    /* width: 500px; */
+    /* height: 250px; */
+  }
+
+.slider__photos-title {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -190,12 +196,18 @@
     padding: 7px 0;
   }
   
-  .slider__images .image {
+  .slider__photos .photo {
     opacity: 0;
     transition: opacity 800ms ease;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   
-  .slider__images .image.active {
+  .slider__photos .photo.active {
     opacity: 1;
   }
 
@@ -205,14 +217,14 @@
     align-items: center;
     /* position: absolute; */
     /* left: 0; */
-    bottom: -20px;
+    /* bottom: -20px; */
     width: 100%;
   }
   
   .slider__dots-item {
     width: 10px;
     height: 10px;
-    background: #ccc;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     margin: 0 15px;
     cursor: pointer;
