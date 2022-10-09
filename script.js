@@ -41,7 +41,7 @@ function initSlider(options) {
   let sliderDots = document.querySelector(".slider__dots");
   let sliderNames = document.querySelector(".slider__names");
   
-  initPhotos();
+  //initPhotos();
   initArrows();
   initNames(); 
   
@@ -58,25 +58,44 @@ function initSlider(options) {
     initAutoplay();
   }
   
-  function initPhotos() {
-    photos.forEach((photo, index) => {
-      let photoDiv = `<div class="photo n${index} ${index === 0? "active" : ""}" data-index="${index}"> <img src=${photos[index].src} alt="project_photo"> </div>`;
-      //let photoDiv = `<div class="photo n${index} ${index === 0? "active" : ""}" style="background-image:url(${photos[index].url});" data-index="${index}"></div>`;
-      sliderPhotos.innerHTML += photoDiv;
-    });
+  function initPhotos(num) {
+    sliderPhotos.querySelector(".slider__photo").src = photos[num].src;
+    // photos.forEach((photo, index) => {
+    //   let photoDiv = `<div class="photo n${index} ${index === 0? "active" : ""}" data-index="${index}"> <img src=${photos[index].src} alt="project_photo"> </div>`;
+    //   //let photoDiv = `<div class="photo n${index} ${index === 0? "active" : ""}" style="background-image:url(${photos[index].url});" data-index="${index}"></div>`;
+    //   sliderPhotos.innerHTML += photoDiv;
+    // });
   }
   
   function initArrows() {
+    const prev = document.querySelector('.prev')
+    const next = document.querySelector('.next')
+    let currentIndex = 0
+
+    prev.addEventListener('click', () => {
+      if (currentIndex != 0) {
+      initPhotos(currentIndex - 1);
+      currentIndex -= 1;
+      } else {
+        currentIndex = photos.length-1
+      }
+    })
+    next.addEventListener('click', () => {
+      initPhotos(currentIndex + 1);
+      currentIndex += 1;
+    })
+
     sliderArrows.querySelectorAll(".slider__arrow").forEach(arrow => {
       arrow.addEventListener("click", function() {
-        let curNumber = +sliderPhotos.querySelector(".active").dataset.index;
-        let nextNumber;
-        if (arrow.classList.contains("prev")) {
-          nextNumber = curNumber === 0? photos.length - 1 : curNumber - 1;
-        } else {
-          nextNumber = curNumber === photos.length - 1? 0 : curNumber + 1;
-        }
-        moveSlider(nextNumber);
+        // let curNumber = +sliderPhotos.querySelector(".active").dataset.index;
+        // let nextNumber;
+        // if (arrow.classList.contains("prev")) {
+        //   nextNumber = curNumber === 0? photos.length - 1 : curNumber - 1;
+        // } else {
+        //   nextNumber = curNumber === photos.length - 1? 0 : curNumber + 1;
+        // }
+        // moveSlider(nextNumber);
+        
       });
     });
   }
@@ -108,8 +127,9 @@ function initSlider(options) {
 
   
   function moveSlider(num) {
-    sliderPhotos.querySelector(".active").classList.remove("active");
-    sliderPhotos.querySelector(".n" + num).classList.add("active");
+    initPhotos(num);
+    //sliderPhotos.querySelector(".active").classList.remove("active");
+    //sliderPhotos.querySelector(".n" + num).classList.add("active");
     if (options.dots) {
       sliderDots.querySelector(".active").classList.remove("active");
       sliderDots.querySelector(".n" + num).classList.add("active");
@@ -166,7 +186,7 @@ function initSlider(options) {
 let sliderOptions = {
   dots: true,
   titles: false,
-  autoplay: true,
+  autoplay: false,
   autoplayInterval: 10000
 };
 
