@@ -1,15 +1,30 @@
 let photos = [{
     src: "images/compl_project-1.png",
     //url: "images/compl_project-1.png",
-    title: "Rostov-on-Don, Admiral"
+    title: "Rostov-on-Don, Admiral",
+    city: "Rostov-on-Don",
+    district: "LCD admiral",
+    apartment: "81 m2",
+    time: "3.5 months",
+    cost: "Upon request"
   }, {
     src: "images/compl_project-2.png",
     //url: "images/compl_project-2.png",
-    title: "Sochi Thieves"
+    title: "Sochi Thieves",
+    city: "Sochi",
+    district: "Thieves",
+    apartment: "105 m2",
+    time: "4 months",
+    cost: "Upon request"
   }, {
     src: "images/compl_project-3.png",
     //url: "images/compl_project-3.png",
-    title: "Rostov-on-Don Patriotic"
+    title: "Rostov-on-Don Patriotic",
+    city: "Rostov-on-Don",
+    district: "Patriotic",
+    apartment: "93 m2",
+    time: "3 months",
+    cost: "Upon request"
   }];
 
 function initSlider(options) {
