@@ -73,31 +73,26 @@ function initSlider(options) {
     let currentIndex = 0
 
     prev.addEventListener('click', () => {
-      if (currentIndex != 0) {
-      initPhotos(currentIndex - 1);
-      currentIndex -= 1;
-      } else {
+      if (currentIndex === 0) {
         currentIndex = photos.length-1
+        moveSlider(currentIndex);
+      
+      } else {
+        currentIndex -= 1;
+        moveSlider(currentIndex);
       }
     })
-    next.addEventListener('click', () => {
-      initPhotos(currentIndex + 1);
-      currentIndex += 1;
-    })
 
-    sliderArrows.querySelectorAll(".slider__arrow").forEach(arrow => {
-      arrow.addEventListener("click", function() {
-        // let curNumber = +sliderPhotos.querySelector(".active").dataset.index;
-        // let nextNumber;
-        // if (arrow.classList.contains("prev")) {
-        //   nextNumber = curNumber === 0? photos.length - 1 : curNumber - 1;
-        // } else {
-        //   nextNumber = curNumber === photos.length - 1? 0 : curNumber + 1;
-        // }
-        // moveSlider(nextNumber);
-        
-      });
-    });
+    next.addEventListener('click', () => {
+      if (currentIndex === photos.length-1) {
+        currentIndex = 0;
+        moveSlider(currentIndex);
+      
+      } else {
+        currentIndex += 1;
+        moveSlider(currentIndex);
+      }   
+    })
   }
   
   function initDots() {
