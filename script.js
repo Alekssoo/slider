@@ -68,31 +68,38 @@ function initSlider(options) {
   }
   
   function initArrows() {
-    const prev = document.querySelector('.prev')
-    const next = document.querySelector('.next')
+    let prev = document.querySelectorAll('.prev')
+    let next = document.querySelectorAll('.next')
     let currentIndex = 0
 
-    prev.addEventListener('click', () => {
-      if (currentIndex === 0) {
-        currentIndex = photos.length-1
-        moveSlider(currentIndex);
-      
-      } else {
-        currentIndex -= 1;
-        moveSlider(currentIndex);
-      }
-    })
+    prev.forEach((arrow) => {
+      arrow.addEventListener('click', () => {
+        if (currentIndex === 0) {
+          currentIndex = photos.length-1
+          moveSlider(currentIndex);
+        
+        } else {
+          currentIndex -= 1;
+          moveSlider(currentIndex);
+        }
+      })
+    });
+    
+    next.forEach((arrow) => {
+      arrow.addEventListener('click', () => {
+        if (currentIndex === photos.length-1) {
+          currentIndex = 0;
+          moveSlider(currentIndex);
+        
+        } else {
+          currentIndex += 1;
+          moveSlider(currentIndex);
+        }   
+      })
+    });
+    
 
-    next.addEventListener('click', () => {
-      if (currentIndex === photos.length-1) {
-        currentIndex = 0;
-        moveSlider(currentIndex);
-      
-      } else {
-        currentIndex += 1;
-        moveSlider(currentIndex);
-      }   
-    })
+    
   }
   
   function initDots() {
@@ -125,15 +132,17 @@ function initSlider(options) {
     initPhotos(num);
     //sliderPhotos.querySelector(".active").classList.remove("active");
     //sliderPhotos.querySelector(".n" + num).classList.add("active");
-    if (options.dots) {
-      sliderDots.querySelector(".active").classList.remove("active");
-      sliderDots.querySelector(".n" + num).classList.add("active");
-    }
     if (options.titles) changeTitle(num);
 
     sliderNames.querySelector(".active").classList.remove("active");
     sliderNames.querySelector(".n" + num).classList.add("active");
     changeParams(num);
+
+    if (options.dots) {
+      sliderDots.querySelector(".active").classList.remove("active");
+      sliderDots.querySelector(".n" + num).classList.add("active");
+    }
+
   }
   
   function initTitles() {
