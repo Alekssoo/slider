@@ -1,6 +1,5 @@
 let photos = [{
     src: "images/compl_project-1.png",
-    //url: "images/compl_project-1.png",
     title: "Rostov-on-Don, Admiral",
     city: "Rostov-on-Don",
     district: "LCD admiral",
@@ -9,7 +8,6 @@ let photos = [{
     cost: "Upon request"
   }, {
     src: "images/compl_project-2.png",
-    //url: "images/compl_project-2.png",
     title: "Sochi Thieves",
     city: "Sochi",
     district: "Thieves",
@@ -18,7 +16,6 @@ let photos = [{
     cost: "Upon request"
   }, {
     src: "images/compl_project-3.png",
-    //url: "images/compl_project-3.png",
     title: "Rostov-on-Don Patriotic",
     city: "Rostov-on-Don",
     district: "Patriotic",
@@ -41,7 +38,6 @@ function initSlider(options) {
   let sliderDots = document.querySelector(".slider__dots");
   let sliderNames = document.querySelector(".slider__names");
   
-  //initPhotos();
   initArrows();
   initNames(); 
   
@@ -60,11 +56,6 @@ function initSlider(options) {
   
   function initPhotos(num) {
     sliderPhotos.querySelector(".slider__photo").src = photos[num].src;
-    // photos.forEach((photo, index) => {
-    //   let photoDiv = `<div class="photo n${index} ${index === 0? "active" : ""}" data-index="${index}"> <img src=${photos[index].src} alt="project_photo"> </div>`;
-    //   //let photoDiv = `<div class="photo n${index} ${index === 0? "active" : ""}" style="background-image:url(${photos[index].url});" data-index="${index}"></div>`;
-    //   sliderPhotos.innerHTML += photoDiv;
-    // });
   }
   
   function initArrows() {
@@ -130,8 +121,6 @@ function initSlider(options) {
   
   function moveSlider(num) {
     initPhotos(num);
-    //sliderPhotos.querySelector(".active").classList.remove("active");
-    //sliderPhotos.querySelector(".n" + num).classList.add("active");
     if (options.titles) changeTitle(num);
 
     sliderNames.querySelector(".active").classList.remove("active");

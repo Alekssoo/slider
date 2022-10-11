@@ -23,23 +23,23 @@
     margin: 0 auto;
 }
 
-.projects {
+.slider {
     background-color: black;
     padding-top: 100px;
     padding-bottom: 420px;
 }
 
-.projects_content {
+.slider__content {
     height: auto;
     position: relative;
 }
 
-.projects_title {
+.slider__title {
     max-width: 50%;
     margin-top: 0;
 }
 
-.projects_text {
+.slider__text {
     font-size: 14px;
     line-height: 27px;
     margin-bottom: 21px;
@@ -78,14 +78,14 @@
     border-bottom: 1px solid #E3B873;
 }
 
-.projects_details {
+.slider__details {
     display: flex;
     max-height: 482px; /* изменено */
     margin: 0 auto;
     margin-top: 45px;
 }
 
-.projects_details_info {
+.slider__details_info {
     display: flex;
     flex-direction: column;
     color: white;
@@ -133,15 +133,9 @@
     margin-right: 30px;
 }
 
-.projects_details_info > div:nth-last-child(2) {
+.slider__details_info > div:nth-last-child(2) {
     flex: 1;
 } 
-
-.projects_details_photo {
-    max-width: 100%;
-    margin-left: auto; /* добавлено */
-    margin-right: inherit; /* добавлено */
-}
 
 .mobile-buttons {
     position: absolute;
@@ -159,6 +153,12 @@
     display:none;
 }
 
+.slider__photos {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: inherit; 
+  }
+
 .slider__photos-title {
     position: absolute;
     left: 0;
@@ -171,16 +171,7 @@
     padding: 7px 0;
   }
   
-  .slider__photos .photo {
-    opacity: 0;
-    transition: opacity 800ms ease;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .slider__photos .photo.active {
-    opacity: 1;
-  }
+
 
 .slider__dots {
     display: flex;
@@ -214,28 +205,36 @@
         display: block;
     }
 
-    .projects {
+    .slider {
         padding-top: 20px;
     }
 
-    .projects_content {
+    .slider__content {
         display: flex;
         flex-direction: column;
     }
 
-    .projects_details {
+    .slider__details {
         flex-direction: column;
         max-height: 100%;  
         margin-top: 15px;
+        position: relative;
     }
 
-    .projects_details_info {
+    .slider__title {
+        order: 1;
+    }
+
+    .slider__details_info {
         width: 100%;
     }
 
     .slider__photos {
         display: block;
         max-height: 584px;
+        margin-top: 83%;
+        position: absolute;
+        order: 3;
     }
     
     .slider__photo {
@@ -246,7 +245,7 @@
 
     .slider__arrows_mobile {
         bottom: 42%;
-        height: 5%;
+        height: 15%;
     }
 
     .mini-button {
@@ -255,17 +254,19 @@
     }
 
     .slider__params {
-        position: relative;
+        margin-top: 80%;
+        order: 4;
     }
 
     .slider__params_block {
         margin-bottom: 30px;
     }
 
-    .projects_text {
+    .slider__text {
         margin-top: 50px;
         margin-bottom: 65px;
         text-align: center;
+        order: 2;
     }
 
     .slider__params_title {
